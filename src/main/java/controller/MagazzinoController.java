@@ -1,5 +1,6 @@
 package controller;
 
+import model.dao.GetFornitoreDAO;
 import model.dao.OrderDAO;
 import model.dao.ReportDAO;
 import view.MagazzinoView;
@@ -35,7 +36,7 @@ public class MagazzinoController implements Controller{
         new OrderDAO().execute(codice);
     }
 
-    public void seeFornitore(int codice){
+    public void seeFornitore(int codice) throws SQLException, IOException {
         new GetFornitoreDAO().execute(codice);
     }
 }

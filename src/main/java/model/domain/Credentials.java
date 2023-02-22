@@ -38,6 +38,9 @@ public class Credentials {
             case 2:
                 ruolo = "TECNICO";
                 break;
+            case 3:
+                ruolo = "MAGAZZINO";
+                break;
             }
         return ruolo;    
     }

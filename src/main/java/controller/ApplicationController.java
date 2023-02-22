@@ -20,6 +20,7 @@ public class ApplicationController implements Controller{
         switch (role){
            case "SEGRETERIA" -> new SegreteriaController().start(credentials.getCodice());
            case "TECNICO" -> new TecnicoController().start(credentials.getCodice());
+           case "MAGAZZINO" -> new MagazzinoController().start(credentials.getCodice());
         }
     }
 

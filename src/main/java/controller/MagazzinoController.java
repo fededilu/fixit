@@ -1,5 +1,6 @@
 package controller;
 
+import model.dao.OrderDAO;
 import model.dao.ReportDAO;
 import view.MagazzinoView;
 import view.TecnicoView;
@@ -21,6 +22,7 @@ public class MagazzinoController implements Controller{
             switch (choice) {
                 case 1 -> report(codice);
                 case 2 -> order(codice);
+                case 3 -> seeFornitore(codice);
             }
         }
     }
@@ -29,8 +31,12 @@ public class MagazzinoController implements Controller{
         new ReportDAO().execute(codice);
     }
 
-    public void order(int codice) {
+    public void order(int codice) throws SQLException, IOException {
+        new OrderDAO().execute(codice);
+    }
 
+    public void seeFornitore(int codice){
+        new GetFornitoreDAO().execute(codice);
     }
 }
 

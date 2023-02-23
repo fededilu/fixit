@@ -1,10 +1,6 @@
 package controller;
 
-import model.dao.CloseDeviceDAO;
-import model.dao.InsertDeviceDAO;
-import model.dao.ShowDeviceDAO;
-import model.dao.ShowOCDeviceDAO;
-import model.dao.DropDeviceDAO;
+import model.dao.*;
 import view.SegreteriaView;
 
 import java.io.BufferedReader;
@@ -35,6 +31,7 @@ public class SegreteriaController implements Controller{
                 case 3 -> seeOpenBoard();
                 case 4 -> seeClosedBoard();
                 case 5 -> closeBoard();
+                case 6 -> calcolaPrezzo();
             }
         }
     }
@@ -61,8 +58,9 @@ public class SegreteriaController implements Controller{
         new CloseDeviceDAO().execute(codice);
     }
 
-    public void dropBoard() throws SQLException, IOException {
-        new DropDeviceDAO().execute(codice);
+    public void calcolaPrezzo() throws IOException, SQLException {
+        System.out.println("inserisci il codice del dispositivo per calcolare il prezzo: ");
+        new PrezzoDAO().execute(Integer.parseInt(buffer.readLine()));
     }
 
 }
